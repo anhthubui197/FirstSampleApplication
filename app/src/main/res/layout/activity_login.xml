@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.anhthubui.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.anhthubui.login.LoginViewModel" />
+        <variable
+            name="username"
+            type="java.lang.String" />
+        <variable
+            name="password"
+            type="java.lang.String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/background"
+        android:id="@+id/activityMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/black_ops_one"
+            android:gravity="center"
+            android:text="FIRST"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/planner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/black_ops_one"
+            android:gravity="center"
+            android:text="SAMPLE"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/gray"
+            app:layout_constraintBottom_toTopOf="@id/password"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_white"
+
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                style="@style/TextStyle"
+                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:gravity="center|left"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:text="@{username}"
+                android:maxLength="50"
+                android:textColor="@color/black_effective"
+                android:paddingHorizontal="20dp"
+                android:textSize="17sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/gray"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintBottom_toTopOf="@id/btnServerLogin"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/edit_text_white"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                style="@style/TextStyle"
+                android:background="@color/transparent"
+                android:hint="@string/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:gravity="center|left"
+                android:inputType="textPassword"
+                android:text="@{password}"
+                android:maxLength="50"
+                android:textColor="@color/black_effective"
+                android:paddingHorizontal="20dp"
+                android:textSize="17sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnServerLogin"
+            style="@style/Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{() -> viewModel.login(username,password)}"
+            android:text="@string/login"
+            android:background="@drawable/edit_text_white"
+            android:backgroundTint="#A9336E89"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="18sp" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

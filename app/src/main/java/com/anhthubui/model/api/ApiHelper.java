@@ -23,6 +23,8 @@ import io.reactivex.Single;
 @Singleton
 public class ApiHelper implements IApiHelper {
 
+    final static String TAG ="Thu ApiHelper";
+
     public static final String ENDPOINT_LOGIN = "https://run.mocky.io/v3/bd65fa35-85c4-4a03-b999-b2c6c0068814";
 
     public static final String ENDPOINT_GET_POST = " https://jsonplaceholder.typicode.com/posts";
@@ -33,6 +35,7 @@ public class ApiHelper implements IApiHelper {
 
     @Override
     public Single<LoginResponse> doLoginApiCall(LoginRequest request) {
+        Log.i(TAG, "doLoginApiCall");
         return Rx2AndroidNetworking.post(ENDPOINT_LOGIN)
                 .addBodyParameter(request)
                 .build()
@@ -42,6 +45,7 @@ public class ApiHelper implements IApiHelper {
 
     @Override
     public Single<List<GetPostResponse>> doGetPostApiCall(String userId) {
+        Log.i(TAG, "doGetPostApiCall");
         return Rx2AndroidNetworking.get(ENDPOINT_GET_POST)
                 .addQueryParameter("userId",userId)
                 .build()

@@ -21,7 +21,7 @@ public class LoginViewModel extends BaseViewModel<LoginHandler>
                         .observeOn(getSchedulerProvider().ui())
                         .subscribe(response -> {
                          //   Log.i("Thu", "response: "+ response.getUserName());
-                            getHandler().openViewPostsActivity();
+                            getHandler().openViewPostsActivity(response);
                         }, throwable -> {
                           //  Log.i("Thu", "throwable: "+ throwable.getMessage());
                             getHandler().handleError(throwable);

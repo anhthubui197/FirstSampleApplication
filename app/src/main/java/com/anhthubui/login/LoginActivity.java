@@ -8,6 +8,7 @@ import com.anhthubui.R;
 import com.anhthubui.base.BaseActivity;
 import com.anhthubui.databinding.ActivityLoginBinding;
 import com.anhthubui.di.component.ActivityComponent;
+import com.anhthubui.model.LoginResponse;
 import com.anhthubui.view_posts.ViewPostsActivity;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginHandler {
@@ -39,8 +40,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     }
 
     @Override
-    public void openViewPostsActivity() {
-        startActivity(new Intent(LoginActivity.this, ViewPostsActivity.class));
+    public void openViewPostsActivity(LoginResponse response) {
+        Intent intent = new Intent(LoginActivity.this, ViewPostsActivity.class);
+        intent.putExtra("loginResponse",response);
+        startActivity(intent);
         finish();
     }
 }

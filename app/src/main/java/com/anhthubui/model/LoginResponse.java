@@ -3,7 +3,9 @@ package com.anhthubui.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public final class LoginResponse {
+import java.io.Serializable;
+
+public final class LoginResponse implements Serializable {
 
     @Expose
     @SerializedName("userId")

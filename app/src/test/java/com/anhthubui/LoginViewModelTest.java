@@ -72,6 +72,6 @@ public class LoginViewModelTest {
         mLoginViewModel.login(username, password);
         mTestScheduler.triggerActions();
 
-        verify(mLoginCallback).openViewPostsActivity();
+        verify(mLoginCallback).openViewPostsActivity(response);
     }
 }

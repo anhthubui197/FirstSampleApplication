@@ -12,30 +12,33 @@
         <variable
             name="viewModel"
             type="com.anhthubui.view_posts.ViewPostsViewModel" />
-
+        <variable
+            name="user"
+            type="com.anhthubui.model.LoginResponse" />
     </data>
 
-    <FrameLayout
-        android:id="@+id/root"
+    <RelativeLayout
+
+        android:id="@+id/activityMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
-        <RelativeLayout
-
-            android:id="@+id/activityMain"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
+            android:layout_height="wrap_content"
+            android:text="@{`Hi, `+ user.firstName +` `+user.lastName}"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:gravity="center"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/posts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="100dp"/>
 
-        </RelativeLayout>
-    </FrameLayout>
+    </RelativeLayout>
 
 </layout>

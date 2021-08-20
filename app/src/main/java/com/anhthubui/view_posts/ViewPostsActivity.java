@@ -12,6 +12,7 @@ import com.anhthubui.base.BaseActivity;
 import com.anhthubui.databinding.ActivityViewPostsBinding;
 import com.anhthubui.di.component.ActivityComponent;
 import com.anhthubui.model.GetPostResponse;
+import com.anhthubui.model.LoginResponse;
 
 import java.util.List;
 
@@ -39,11 +40,13 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         mViewModel.setHandler(this);
+        LoginResponse loginResponse = (LoginResponse) getIntent().getSerializableExtra("loginResponse");
         Log.i(TAG,"onCreate");
-        mViewModel.getPosts("1");
+        Log.i(TAG,loginResponse.getFirstName());
+        getViewDataBinding().setUser(loginResponse);
+        mViewModel.getPosts(loginResponse.getUserId());
         Log.i(TAG,"after get posts");
 
     }

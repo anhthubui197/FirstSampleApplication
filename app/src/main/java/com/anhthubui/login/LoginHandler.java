@@ -16,6 +16,8 @@
 
 package com.anhthubui.login;
 
+import com.anhthubui.model.LoginResponse;
+
 /**
  * Created by amitshekhar on 08/07/17.
  */
@@ -24,5 +26,5 @@ public interface LoginHandler {
 
     void handleError(Throwable throwable);
 
-    void openViewPostsActivity();
+    void openViewPostsActivity(LoginResponse response);
 }

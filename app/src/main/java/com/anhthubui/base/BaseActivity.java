@@ -33,7 +33,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.i(TAG,"onCreate");
+        //Log.i(TAG,"onCreate");
         performDependencyInjection(getBuildComponent());
         super.onCreate(savedInstanceState);
         performDataBinding();
@@ -45,7 +45,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
 
 
     private ActivityComponent getBuildComponent() {
-        Log.i(TAG,"getBuildComponent");
+        //Log.i(TAG,"getBuildComponent");
 
         return DaggerActivityComponent.builder()
                     .activityModule(new ActivityModule(this))
@@ -56,7 +56,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
 
 
     private void performDataBinding() {
-        Log.i(TAG,"performDataBinding");
+        //Log.i(TAG,"performDataBinding");
 
         mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutId());
         mViewDataBinding.setVariable(getBindingVariable(), mViewModel);

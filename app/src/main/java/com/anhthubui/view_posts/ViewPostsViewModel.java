@@ -21,22 +21,24 @@ public class ViewPostsViewModel extends BaseViewModel<ViewPostsHandler> {
 
     public ViewPostsViewModel(ISchedulerProvider mSchedulerProvider, IApiHelper apiHelper) {
         super(mSchedulerProvider, apiHelper);
-        Log.i(TAG,"ViewPostsViewModel");
+        //Log.i(TAG,"ViewPostsViewModel");
     }
 
 
     public void getPosts(String userId) {
-        Log.i(TAG,"getPosts");
+        //Log.i(TAG,"getPosts");
         getCompositeDisposable()
                 .add(getApiHelper().doGetPostApiCall(userId)
-                        .doOnSuccess(postResponseList -> Log.i(TAG, postResponseList.get(0).getBody()))
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnSuccess(response -> {
+                            //Log.i(TAG, "doOnSuccess");
+                        })
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
                         .subscribe(response -> {
+                            //Log.i(TAG, "subscribe response");
                             getHandler().setUpPosts(response);
-                            Log.i(TAG, "response: "+ response.get(1).getTitle());
                         }, throwable -> {
-                            Log.i(TAG, "throwable: "+ throwable.getMessage());
+                            //Log.i(TAG, "throwable: "+ throwable.getMessage());
                         }));
     }
 }

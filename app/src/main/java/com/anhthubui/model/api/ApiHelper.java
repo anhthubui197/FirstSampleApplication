@@ -35,7 +35,7 @@ public class ApiHelper implements IApiHelper {
 
     @Override
     public Single<LoginResponse> doLoginApiCall(LoginRequest request) {
-        Log.i(TAG, "doLoginApiCall");
+        //Log.i(TAG, "doLoginApiCall");
         return Rx2AndroidNetworking.post(ENDPOINT_LOGIN)
                 .addBodyParameter(request)
                 .build()
@@ -45,7 +45,7 @@ public class ApiHelper implements IApiHelper {
 
     @Override
     public Single<List<GetPostResponse>> doGetPostApiCall(String userId) {
-        Log.i(TAG, "doGetPostApiCall");
+        //Log.i(TAG, "doGetPostApiCall");
         return Rx2AndroidNetworking.get(ENDPOINT_GET_POST)
                 .addQueryParameter("userId",userId)
                 .build()

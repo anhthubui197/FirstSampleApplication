@@ -26,14 +26,14 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
 
     @Override
     public int getBindingVariable() {
-        Log.i(TAG,"getBindingVariable");
+        //Log.i(TAG,"getBindingVariable");
 
         return BR.viewModel;
     }
 
     @Override
     public int getLayoutId() {
-        Log.i(TAG,"getLayoutId");
+        //Log.i(TAG,"getLayoutId");
 
         return R.layout.activity_view_posts;
     }
@@ -43,17 +43,16 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
         super.onCreate(savedInstanceState);
         mViewModel.setHandler(this);
         LoginResponse loginResponse = (LoginResponse) getIntent().getSerializableExtra("loginResponse");
-        Log.i(TAG,"onCreate");
-        Log.i(TAG,loginResponse.getFirstName());
+        //Log.i(TAG,"onCreate");
         getViewDataBinding().setUser(loginResponse);
         mViewModel.getPosts(loginResponse.getUserId());
-        Log.i(TAG,"after get posts");
+        //Log.i(TAG,"after get posts");
 
     }
 
     @Override
     public void performDependencyInjection(ActivityComponent buildComponent) {
-        Log.i(TAG,"performDependencyInjection");
+        //Log.i(TAG,"performDependencyInjection");
 
         buildComponent.inject(this);
     }
@@ -65,7 +64,7 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
 
     @Override
     public void setUpPosts(List<GetPostResponse> response) {
-        Log.i(TAG,"setUpPosts");
+        //Log.i(TAG,"setUpPosts");
         RecyclerView recyclerView = getViewDataBinding().posts;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);

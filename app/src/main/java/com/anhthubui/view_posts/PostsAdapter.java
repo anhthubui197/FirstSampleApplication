@@ -23,13 +23,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
 
     @Inject
     public PostsAdapter() {
-        Log.i(TAG,"PostsAdapter");
+        //Log.i(TAG,"PostsAdapter");
     }
 
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Log.i(TAG,"onCreateViewHolder");
+        //Log.i(TAG,"onCreateViewHolder");
 
         PostListItemBinding postListItemBinding =
                 DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()),
@@ -39,7 +39,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder PostViewHolder, int i) {
-        Log.i(TAG,"onBindViewHolder");
+        //Log.i(TAG,"onBindViewHolder");
 
         GetPostResponse currentPost = posts.get(i);
         PostViewHolder.postListItemBinding.setPost(currentPost);

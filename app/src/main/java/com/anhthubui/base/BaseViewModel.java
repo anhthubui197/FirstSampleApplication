@@ -20,7 +20,7 @@ public abstract class BaseViewModel<N> extends ViewModel {
     private N handler;
 
     protected BaseViewModel(ISchedulerProvider mSchedulerProvider, IApiHelper apiHelper) {
-        Log.i(TAG,"BaseViewModel");
+        //Log.i(TAG,"BaseViewModel");
 
         this.mSchedulerProvider = mSchedulerProvider;
         this.apiHelper = apiHelper;
@@ -30,7 +30,7 @@ public abstract class BaseViewModel<N> extends ViewModel {
 
     @Override
     protected void onCleared() {
-        Log.i(TAG,"onCleared");
+        //Log.i(TAG,"onCleared");
 
         mCompositeDisposable.dispose();
         super.onCleared();

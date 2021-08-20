@@ -44,7 +44,7 @@ public class LoginViewModelTest {
         mTestScheduler = new TestScheduler();
         TestSchedulerProvider testSchedulerProvider = new TestSchedulerProvider(mTestScheduler);
         mLoginViewModel = new LoginViewModel(testSchedulerProvider, mMockApiHelper);
-        mLoginViewModel.setNavigator(mLoginCallback);
+        mLoginViewModel.setHandler(mLoginCallback);
     }
 
     @After
@@ -72,6 +72,6 @@ public class LoginViewModelTest {
         mLoginViewModel.login(username, password);
         mTestScheduler.triggerActions();
 
-        verify(mLoginCallback).openViewPostsActivity(response);
+        verify(mLoginCallback).openViewPostsActivity(any(LoginResponse.class));
     }
 }

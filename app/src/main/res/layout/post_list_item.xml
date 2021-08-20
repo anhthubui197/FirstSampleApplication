@@ -27,7 +27,8 @@
                 bind:layout_constraintStart_toStartOf="parent"
                 bind:layout_constraintTop_toTopOf="parent"
                 android:padding="15dp"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                />
 
             <TextView
                 android:id="@+id/content"
@@ -39,7 +40,7 @@
                 android:padding="@dimen/margin_medium"
                 bind:layout_constraintTop_toBottomOf="@id/name"
                 bind:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="2dp"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

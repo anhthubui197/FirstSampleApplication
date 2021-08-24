@@ -29,10 +29,6 @@ public class ApiHelper implements IApiHelper {
 
     public static final String ENDPOINT_GET_POST = " https://jsonplaceholder.typicode.com/posts";
 
-    @Inject
-    public ApiHelper() {
-    }
-
     @Override
     public Single<LoginResponse> doLoginApiCall(LoginRequest request) {
         //Log.i(TAG, "doLoginApiCall");

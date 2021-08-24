@@ -2,6 +2,7 @@ package com.anhthubui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.anhthubui.BR;
 import com.anhthubui.R;
@@ -13,6 +14,7 @@ import com.anhthubui.view_posts.ViewPostsActivity;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginHandler {
 
+    final static String TAG ="Thu LoginActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void performDependencyInjection(ActivityComponent buildComponent) {
+        //Log.i(TAG,"performDependencyInjection");
         buildComponent.inject(this);
     }
 

@@ -1,15 +1,11 @@
 package com.anhthubui;
 
-import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.anhthubui.model.api.IApiHelper;
-import com.anhthubui.ultils.ISchedulerProvider;
-import com.anhthubui.ultils.SchedulerProvider;
+
 
 import javax.inject.Singleton;
 

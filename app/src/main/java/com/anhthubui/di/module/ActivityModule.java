@@ -47,7 +47,5 @@ public class ActivityModule {
 
     @Provides
     @Singleton
-    IApiHelper provideIApiHelper(ApiHelper apiHelper){
-        return apiHelper;
-    }
+    IApiHelper provideIApiHelper(){ return new ApiHelper(); }
 }

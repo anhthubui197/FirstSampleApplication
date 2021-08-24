@@ -41,9 +41,9 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Log.i(TAG,"onCreate");
         mViewModel.setHandler(this);
         LoginResponse loginResponse = (LoginResponse) getIntent().getSerializableExtra("loginResponse");
-        //Log.i(TAG,"onCreate");
         getViewDataBinding().setUser(loginResponse);
         mViewModel.getPosts(loginResponse.getUserId());
         //Log.i(TAG,"after get posts");
@@ -69,6 +69,7 @@ public class ViewPostsActivity extends BaseActivity<ActivityViewPostsBinding, Vi
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         postsAdapter.setPostsList(response);
+        getViewDataBinding().setNumPosts(response.size());
         recyclerView.setAdapter(postsAdapter);
     }
 }

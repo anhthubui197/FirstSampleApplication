@@ -10,8 +10,9 @@
     <color name="gray">#7e7e7e</color>
     <color name="black_effective">#2a2a2a</color>
     <color name="transparent">#00000000</color>
-    <color name="mid_transparent">#95D5D5D5</color>
+    <color name="mid_transparent">#95FFFFFF</color>
     <color name="navi_transparent">#A9A7FFEB</color>
+    <color name="blue">#A9336E89</color>
 
 
 </resources>

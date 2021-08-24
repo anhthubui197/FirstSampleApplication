@@ -15,6 +15,9 @@
         <variable
             name="user"
             type="com.anhthubui.model.LoginResponse" />
+        <variable
+            name="numPosts"
+            type="java.lang.Integer" />
     </data>
 
     <RelativeLayout
@@ -22,22 +25,40 @@
         android:id="@+id/activityMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/blue"
         >
 
         <TextView
+            android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{`Hi, `+ user.firstName +` `+user.lastName}"
             android:layout_marginTop="20dp"
-            android:textSize="30sp"
-            android:gravity="center"/>
+            android:fontFamily="@font/akronim"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@{`Hi, `+ user.firstName +` `+user.lastName}"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_alignTop="@+id/header"
+            android:fontFamily="serif-monospace"
+            android:gravity="center"
+            android:text="@{`You have `+ numPosts +` posts`}"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="20sp" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/posts"
+            android:layout_alignTop="@+id/num"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="50dp"/>
 
     </RelativeLayout>
 

@@ -29,9 +29,6 @@ public class ViewPostsViewModel extends BaseViewModel<ViewPostsHandler> {
         //Log.i(TAG,"getPosts");
         getCompositeDisposable()
                 .add(getApiHelper().doGetPostApiCall(userId)
-                        .doOnSuccess(response -> {
-                            //Log.i(TAG, "doOnSuccess");
-                        })
                         .subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui())
                         .subscribe(response -> {

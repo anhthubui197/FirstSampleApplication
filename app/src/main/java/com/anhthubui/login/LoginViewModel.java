@@ -19,14 +19,10 @@ public class LoginViewModel extends BaseViewModel<LoginHandler>
     public void login(String username, String password) {
         getCompositeDisposable()
                 .add(getApiHelper().doLoginApiCall(new LoginRequest(username, password))
-                    .doOnSuccess(
-                            loginResponse -> {
-                                getHandler().openViewPostsActivity(loginResponse);
-                                //Log.i(TAG, "doOnSuccess");
-                            })
                         .subscribeOn(getSchedulerProvider().io())
                         .observeOn(getSchedulerProvider().ui())
                         .subscribe(response -> {
+                            getHandler().openViewPostsActivity(response);
                             //Log.i(TAG, "subscribe response: "+ response.getUserName());
                         }, throwable -> {
                             //Log.i(TAG, "subscribe throwable: "+ throwable.getMessage());

@@ -36,6 +36,7 @@ public abstract class BaseViewModel<N> extends ViewModel {
         super.onCleared();
     }
 
+
     public ISchedulerProvider getSchedulerProvider() {
         return mSchedulerProvider;
     }
